@@ -62,9 +62,10 @@
     }
    function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";
-      $strUrl = "https://api.line.me/v2/bot/message/reply";
+      $strUrl1 = "https://api.line.me/v2/bot/message/reply";
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL,$strUrl);
+      curl_setopt($ch, CURLOPT_URL,$strUrl1);
       curl_setopt($ch, CURLOPT_HEADER, false);
       curl_setopt($ch, CURLOPT_POST, true);
       curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
