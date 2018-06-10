@@ -35,7 +35,7 @@
     }
     #ตัวอย่าง Message Type "Image"
       else if($message == "รูปน้องแมว"){
-        $image_url = "http://www.catdumb.com/wp-content/uploads/2016/01/Smalls1.jpg";
+        $image_url = "http://catdumb.com/wp-content/uploads/2016/01/Smalls1.jpg";
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "image";
         $arrayPostData['messages'][0]['originalContentUrl'] = $image_url;
