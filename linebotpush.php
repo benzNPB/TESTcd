@@ -35,7 +35,7 @@
     }
     #ตัวอย่าง Message Type "Image"
       else if($message == "รูปน้องแมว"){
-        $image_url = "https://www.google.co.jp/imgres?imgurl=http%3A%2F%2Fwww.catdumb.com%2Fwp-content%2Fuploads%2F2016%2F01%2FSmalls6.jpg&imgrefurl=http%3A%2F%2Fwww.catdumb.com%2Fsmalls-the-corgi-093%2F&docid=TNXNSz4JZRnbjM&tbnid=VETqWZowYKFFjM%3A&vet=10ahUKEwiW39uukcnbAhWGjLwKHdj0CVUQMwhHKAMwAw..i&w=600&h=600&bih=637&biw=1366&q=%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%84%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%81%E0%B8%B5%E0%B9%89&ved=0ahUKEwiW39uukcnbAhWGjLwKHdj0CVUQMwhHKAMwAw&iact=mrc&uact=8";
+        $image_url = "https://www.google.co.jp/imgres?imgurl=http%3A%2F%2Fwww.catdumb.com%2Fwp-content%2Fuploads%2F2016%2F01%2FSmalls6.jpg&imgrefurl=http%3A%2F%2Fwww.catdumb.com%2Fsmalls-the-corgi-093%2F&docid=TNXNSz4JZRnbjM&tbnid=VETqWZowYKFFjM%3A&vet=10ahUKEwiW39uukcnbAhWGjLwKHdj0CVUQMwhHKAMwAw..i&w=600&h=600&bih=637&biw=1366&q=%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%84%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%81%E0%B8%B5%E0%B9%89&ved=0ahUKEwiW39uukcnbAhWGjLwKHdj0CVUQMwhHKAMwAw&iact=mrc&uact=8.jpg";
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "image";
         $arrayPostData['messages'][0]['originalContentUrl'] = $image_url;
