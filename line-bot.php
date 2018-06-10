@@ -9,7 +9,7 @@
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
 #ตัวอย่าง Message Type "Text"
- $id = $arrayJson['events'][0]['source']['userId'];
+
     if($message == "สวัสดี"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
@@ -53,13 +53,7 @@
         $arrayPostData['messages'][1]['stickerId'] = "131";
         replyMsg($arrayHeader,$arrayPostData);
     }
-    else if($message == "นับ 1-10"){
-       for($i=1;$i<=10;$i++){
-          $arrayPostData['to'] = $id;
-          $arrayPostData['messages'][0]['type'] = "text";
-          $arrayPostData['messages'][0]['text'] = $i;
-          pushMsg($arrayHeader,$arrayPostData);
-       }
+
 function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
@@ -74,19 +68,7 @@ function replyMsg($arrayHeader,$arrayPostData){
         curl_close ($ch);
     }
     
- function pushMsg($arrayHeader,$arrayPostData){
-      $strUrl = "https://api.line.me/v2/bot/message/push";
-      $ch = curl_init();
-      curl_setopt($ch, CURLOPT_URL,$strUrl);
-      curl_setopt($ch, CURLOPT_HEADER, false);
-      curl_setopt($ch, CURLOPT_POST, true);
-      curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
-      curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-      $result = curl_exec($ch);
-      curl_close ($ch);
-    }
+ 
         
    exit;
 ?>
