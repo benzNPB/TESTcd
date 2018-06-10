@@ -44,6 +44,13 @@
         $arrayPostData['messages'][0]['longitude'] = "100.532752";
         replyMsg($arrayHeader,$arrayPostData);
     }
+     else if($message == "นับ 1-10"){
+       for($i=1;$i<=10;$i++){
+          $arrayPostData['to'] = $id;
+          $arrayPostData['messages'][0]['type'] = "text";
+          $arrayPostData['messages'][0]['text'] = $i;
+          pushMsg($arrayHeader,$arrayPostData);
+    }
     #ตัวอย่าง Message Type "Text + Sticker ใน 1 ครั้ง"
     else if($message == "ลาก่อน"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
