@@ -1,119 +1,25 @@
 <?php
 
-include ('vendor/autoload.php');
+// example: https://github.com/onlinetuts/line-bot-api/blob/master/php/example/chapter-01.php
 
-use \LINE\LINEBot;
-use \LINE\LINEBot\HTTPClient;
-use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
-use \LINE\LINEBot\MessageBuilder;
-use \LINE\LINEBot\MessageBuilder\TextMessageBuilder;
+include ('line-bot-api/php/line-bot.php');
 
-class BOT_API extends LINEBot {
-	
-    /* ====================================================================================
-     * Variable
-     * ==================================================================================== */
-	
-    private $httpClient     = null;
-    private $endpointBase   = null;
-    private $channelSecret  = null;
-	
-    public $content         = null;
-    public $events          = null;
-	
-    public $isEvents        = false;
-    public $isText          = false;
-    public $isImage         = false;
-    public $isSticker       = false;
-	
-    public $text            = null;
-    public $replyToken      = null;
-    public $source          = null;
-    public $message         = null;
-    public $timestamp       = null;
-	
-    public $response        = null;
-	
-    /* ====================================================================================
-     * Custom
-     * ==================================================================================== */
-	
-    public function __construct ($channelSecret, $access_token) {
-		
-        $this->httpClient     = new CurlHTTPClient($access_token);
-        $this->channelSecret  = $channelSecret;
-        $this->endpointBase   = LINEBot::DEFAULT_ENDPOINT_BASE;
-		
-        $this->content        = file_get_contents('php://input');
-        $events               = json_decode($this->content, true);
-		
-        if (!empty($events['events'])) {
-			
-            $this->isEvents = true;
-            $this->events   = $events['events'];
-			
-            foreach ($events['events'] as $event) {
-				
-                $this->replyToken = $event['replyToken'];
-                $this->source     = (object) $event['source'];
-                $this->message    = (object) $event['message'];
-                $this->timestamp  = $event['timestamp'];
-				
-                if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
-                    $this->isText = true;
-                    $this->text   = $event['message']['text'];
-                }
-				
-                if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
-                    $this->isImage = true;
-                }
-				
-                if ($event['type'] == 'message' && $event['message']['type'] == 'sticker') {
-                    $this->isSticker = true;
-                }
-				
-            }
+$channelSecret = '5c1c1cb6d2769f4783b63c8ddddd8f82';
+$access_token  = 'yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvKfdC2yo896ykJVwW8Xne9++3BjCqj9xsNEdeENjtWVda5UTFIw149B2ygMnCp/4Fcn/nAV1YYOX1YLNxEJkiHwwdB04t89/1O/w1cDnyilFU=';
 
-        }
-		
-        parent::__construct($this->httpClient, [ 'channelSecret' => $channelSecret ]);
-		
-    }
+$bot = new BOT_API($channelSecret, $access_token);
 	
-    public function sendMessageNew ($to = null, $message = null) {
-        $messageBuilder = new TextMessageBuilder($message);
-        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/push', [
-            'to' => $to,
-            // 'toChannel' => 'Channel ID,
-            'messages'  => $messageBuilder->buildMessage()
-        ]);
-    }
-	
-    public function replyMessageNew ($replyToken = null, $message = null) {
-        $messageBuilder = new TextMessageBuilder($message);
-        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-            'replyToken' => $replyToken,
-            'messages'   => $messageBuilder->buildMessage(),
-        ]);
-    }
-	
-    public function isSuccess () {
-        return !empty($this->response->isSucceeded()) ? true : false;
-    }
-	
-    public static function verify ($access_token) {
+if (!empty($bot->isEvents)) {
 		
-        $ch = curl_init('https://api.line.me/v1/oauth/verify');
-		
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, [ 'Authorization: Bearer ' . $access_token ]);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+	$bot->replyMessageNew($bot->replyToken, json_encode($bot->message));
 
-        $result = curl_exec($ch);
-        curl_close($ch);
+	if ($bot->isSuccess()) {
+		echo 'Succeeded!';
+		exit();
+	}
 
-        return json_decode($result);
-		
-    }
-	
+	// Failed
+	echo $bot->response->getHTTPStatus . ' ' . $bot->response->getRawBody(); 
+	exit();
+
 }
