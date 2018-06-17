@@ -23,6 +23,8 @@
  * Released under the MIT license
  * https://github.com/indigophp/hash-compat/blob/43a19f42093a0cd2d11874dff9d891027fc42214/LICENSE
  */
+$channelAccessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvKfdC2yo896ykJVwW8Xne9++3BjCqj9xsNEdeENjtWVda5UTFIw149B2ygMnCp/4Fcn/nAV1YYOX1YLNxEJkiHwwdB04t89/1O/w1cDnyilFU=";
+$channelSecret = "5c1c1cb6d2769f4783b63c8ddddd8f82";
 if (!function_exists('hash_equals')) {
     defined('USE_MB_STRING') or define('USE_MB_STRING', function_exists('mb_strlen'));
 
