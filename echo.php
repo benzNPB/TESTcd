@@ -73,7 +73,7 @@
     else {
          $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "string";
-        $arrayPostData['messages'][0]['text'] == $arrayJson['events'][0]['message']['text'];
+        $arrayPostData['messages'][0]['text'] == $message;
         replyMsg($arrayHeader,$arrayPostData);
     }//try to echo
 
