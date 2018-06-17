@@ -72,9 +72,9 @@
     }
     else {
          $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "ไม่เข้าใจจ้า";
-        replyMsg($arrayHeader,$arrayPostData);
+        $arrayPostData['messages'][0]['type'] = "String";
+        $arrayPostData['messages'][0]['text'] =  $message;
+        echo($arrayHeader,$arrayPostData);
     }//try to echo
 
     function replyMsg($arrayHeader,$arrayPostData){
@@ -103,7 +103,20 @@
       $result = curl_exec($ch);
       curl_close ($ch);
    }
- 
+   function echo($arrayHeader,$arrayPostData)//try echo
+   {
+      $strUrl = "https://api.line.me/v2/bot/profile/{userId}";
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL,$strUrl);
+      curl_setopt($ch, CURLOPT_HEADER, false);
+      curl_setopt($ch, CURLOPT_POST, true);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      $result = curl_exec($ch);
+      curl_close ($ch);
+   }
         
    exit;
 ?>
