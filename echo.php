@@ -73,8 +73,8 @@
     else {
          $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $message;
-        replyMsg($arrayHeader,$message);
+        $arrayPostData['messages'][0]['text'] = "ไม่เข้าใจจ้า";
+        replyMsg($arrayHeader,$arrayPostData);
     }//try to echo
 
     function replyMsg($arrayHeader,$arrayPostData){
