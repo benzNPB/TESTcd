@@ -74,7 +74,7 @@
          $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "String";
         $arrayPostData['messages'][0]['text'] == "$message";
-        pushMsg($arrayHeader,$arrayPostData);
+        pushMsg($arrayHeader,$message);
     }//try to echo
 
     function replyMsg($arrayHeader,$arrayPostData){
