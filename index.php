@@ -5,6 +5,6 @@ $bot = new Linebot();
 $text = $bot->getMessageText();
 $bot->reply($text);
 $userId = $bot->getUserId();
-$bot->pushText($userId, 'Hello Simple Text!');
+$bot->reply($userId);
 
 
