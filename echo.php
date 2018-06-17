@@ -1,7 +1,7 @@
     $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvKfdC2yo896ykJVwW8Xne9++3BjCqj9xsNEdeENjtWVda5UTFIw149B2ygMnCp/4Fcn/nAV1YYOX1YLNxEJkiHwwdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
    define(‘LINE_API’,”https://notify-api.line.me/api/notify");
  
-$token = $accessToken; //ใส่Token ที่copy เอาไว้
+$token = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvKfdC2yo896ykJVwW8Xne9++3BjCqj9xsNEdeENjtWVda5UTFIw149B2ygMnCp/4Fcn/nAV1YYOX1YLNxEJkiHwwdB04t89/1O/w1cDnyilFU="; //ใส่Token ที่copy เอาไว้
 $str = “Hello”; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
  
 $res = notify_message($str,$token);
