@@ -125,11 +125,7 @@ class Linebot {
 	}
 
 	/////////////////////TEST CODE REPLY///////////////////
-    $content = file_get_contents('php://input');
-    $arrayJson = json_decode($content, true);
-    $arrayHeader = array();
-    $arrayHeader[] = "Content-Type: application/json";
-    $arrayHeader[] = "Authorization: Bearer {$channelAccessToken}";
+
 	
 function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
