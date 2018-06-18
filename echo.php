@@ -12,7 +12,7 @@ if($text == "สวัสดี")
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
-        replyMsg($arrayHeader,$arrayPostData);
+       $bot->replyMsg($arrayHeader,$arrayPostData);
     }
 else
 {
