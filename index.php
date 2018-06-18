@@ -1,5 +1,5 @@
-
-require_once __DIR__ . '/lineBot.php';
+<?php
+require_once __DIR__ . '/lineBot.ph<p';
 
 $bot = new Linebot();
 $text = $bot->getMessageText();
@@ -8,3 +8,4 @@ $userId = $bot->getUserId();
 $bot->reply($userId);
 
 
+?>
