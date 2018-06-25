@@ -75,13 +75,11 @@
         replyMsg($arrayHeader,$arrayPostData);
     }
     else {
-
- 	require_once "GoogleTranslate.php";
- 	$word = $_REQUEST['word'];
+ 	$message = $_REQUEST['word'];
 	$GT = NEW GoogleTranslate();
-	$response = $GT->translate('th','en',$word);  /// ตรง en เราสามารถเปลี่ยนเป็น ภาษาอื่นได้
+	$response = $GT->translate('th','en',$message);  /// ตรง en เราสามารถเปลี่ยนเป็น ภาษาอื่นได้
 //echo "<pre>";
-	echo $word."   =   ".$response;
+	echo $message."   =   ".$response;
 }
 
     function replyMsg($arrayHeader,$arrayPostData){
