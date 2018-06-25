@@ -1,7 +1,7 @@
 <?php
     $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvKfdC2yo896ykJVwW8Xne9++3BjCqj9xsNEdeENjtWVda5UTFIw149B2ygMnCp/4Fcn/nAV1YYOX1YLNxEJkiHwwdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
     require_once __DIR__ . '/lineBot.php';
-    require_once "GoogleTranslate.php";
+    require_once __DIR__ . '/GoogleTranslate.php';
 	$bot = new Linebot();
 	$text = $bot->getMessageText();
     $content = file_get_contents('php://input');
@@ -77,7 +77,8 @@
     else 
     {
 	$bot->reply($text);
-}
+	$bot->reply($sentences);
+	}
 
     function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
