@@ -75,7 +75,6 @@
         replyMsg($arrayHeader,$arrayPostData);
     }
     else {
- 	$message = $_REQUEST['word'];
 	$GT = NEW GoogleTranslate();
 	$response = $GT->translate('th','en',$message);  /// ตรง en เราสามารถเปลี่ยนเป็น ภาษาอื่นได้
 //echo "<pre>";
