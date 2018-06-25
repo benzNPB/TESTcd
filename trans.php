@@ -24,7 +24,7 @@ if ( sizeof($request_array['events']) > 0 )
     $GT = NEW GoogleTranslate();
     $response = $GT->translate('th','en',$text);  /// ตรง en เราสามารถเปลี่ยนเป็น ภาษาอื่นได้
     echo $text."   =   ".$response;
-    $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้ว';
+    $reply_message = 'ระบบได้รับข้อความ ('.$translation.') ของคุณแล้ว';
    }
    else
     $reply_message = 'ระบบได้รับ '.ucfirst($event['message']['type']).' ของคุณแล้ว';
