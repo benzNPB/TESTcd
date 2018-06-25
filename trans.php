@@ -139,7 +139,7 @@ class GoogleTranslate
     }
     else 
     {
-	$bot->reply($sentences);
+	$bot->reply($text);
 }
 
     function replyMsg($arrayHeader,$arrayPostData){
