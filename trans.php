@@ -75,10 +75,7 @@
         replyMsg($arrayHeader,$arrayPostData);
     }
     else {
-	$GT = NEW GoogleTranslate();
-	$response = $GT->translate('th','en',$message);  /// ตรง en เราสามารถเปลี่ยนเป็น ภาษาอื่นได้
-//echo "<pre>";
-	echo $message."   =   ".$response;
+	echo $message = $message
 }
 
     function replyMsg($arrayHeader,$arrayPostData){
