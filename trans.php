@@ -75,14 +75,14 @@
         replyMsg($arrayHeader,$arrayPostData);
     }
     else {
-    	
-require_once "GoogleTranslate.php";
-$word = $_REQUEST['word'];
-$GT = NEW GoogleTranslate();
-$response = $GT->translate('th','ja',$word);
+
+ 	require_once "GoogleTranslate.php";
+ 	$word = $_REQUEST['word'];
+	$GT = NEW GoogleTranslate();
+	$response = $GT->translate('th','en',$word);  /// ตรง en เราสามารถเปลี่ยนเป็น ภาษาอื่นได้
 //echo "<pre>";
-echo $word."   =   ".$response;
-    }
+	echo $word."   =   ".$response;
+}
 
     function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
