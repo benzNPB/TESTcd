@@ -1,6 +1,6 @@
 <?php
     $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvKfdC2yo896ykJVwW8Xne9++3BjCqj9xsNEdeENjtWVda5UTFIw149B2ygMnCp/4Fcn/nAV1YYOX1YLNxEJkiHwwdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
-
+     require_once "GoogleTranslate.php";
 $API_URL = 'https://api.line.me/v2/bot/message/reply';
 $ACCESS_TOKEN = $accessToken; // Access Token ค่าที่เราสร้างขึ้น
 $POST_HEADER = array('Content-Type: application/json', 'Authorization: Bearer ' . $ACCESS_TOKEN);
@@ -21,6 +21,9 @@ if ( sizeof($request_array['events']) > 0 )
    if( $event['message']['type'] == 'text' )
    {
     $text = $event['message']['text'];
+    $GT = NEW GoogleTranslate();
+    $response = $GT->translate('th','en',$text);  /// ตรง en เราสามารถเปลี่ยนเป็น ภาษาอื่นได้
+    echo $text."   =   ".$response;
     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้ว';
    }
    else
