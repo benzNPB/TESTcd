@@ -14,8 +14,6 @@
     $message = $arrayJson['events'][0]['message']['text'];
 #ตัวอย่าง Message Type "Text"
     $id = $arrayJson['events'][0]['source']['userId'];
-     if($message == "นับ 1-10"){
-       for($i=1;$i<=10;$i++){
         $arrayPostData['to'] = $id;
         $word = $_REQUEST['word'];
 		$GT = NEW GoogleTranslate();
