@@ -75,7 +75,7 @@
         replyMsg($arrayHeader,$arrayPostData);
     }
     else {
-	echo $message = $message
+	echo $message
 }
 
     function replyMsg($arrayHeader,$arrayPostData){
