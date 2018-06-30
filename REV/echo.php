@@ -1,7 +1,23 @@
+Skip to content
+ 
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ @benzNPB Sign out
+0
+0 0 benzNPB/linebottest
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights  Settings
+linebottest/echo.php
+7b4f233  12 days ago
+@benzNPB benzNPB Add files via upload
+     
+112 lines (104 sloc)  5.23 KB
 <?php
     $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvKfdC2yo896ykJVwW8Xne9++3BjCqj9xsNEdeENjtWVda5UTFIw149B2ygMnCp/4Fcn/nAV1YYOX1YLNxEJkiHwwdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
     require_once __DIR__ . '/lineBot.php';
-
 	$bot = new Linebot();
 	$text = $bot->getMessageText();
     $content = file_get_contents('php://input');
@@ -22,7 +38,6 @@
           pushMsg($arrayHeader,$arrayPostData);
        }
     }
-
     else if($message == "สวัสดี"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
@@ -78,7 +93,6 @@
     	
        $bot->reply($text);
     }
-
     function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
@@ -108,4 +122,3 @@
  
         
    exit;
-?>
