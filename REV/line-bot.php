@@ -1,6 +1,6 @@
 <?php
 
-include ('autoload.php');
+include ('REV/autoload.php');
 
 use \LINE\LINEBot;
 use \LINE\LINEBot\HTTPClient;
