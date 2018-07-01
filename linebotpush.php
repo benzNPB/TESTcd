@@ -71,7 +71,7 @@
         replyMsg($arrayHeader,$arrayPostData);
     }
 
-function replyMsg($arrayHeader,$arrayPostData){
+    function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$strUrl);
